@@ -26,3 +26,15 @@ nav {
 .historyBtn {
     margin-right: 250px;
 }
+
+
+/* Creating different styling for my recent search card - Taylor */
+.recentSearches {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 400px;
+  padding: 50px;
+  width: 400px;
+  background-color: aquamarine;
+}
