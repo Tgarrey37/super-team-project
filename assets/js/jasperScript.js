@@ -50,8 +50,21 @@ function checkDates() {
           console.log(
             "The percentage of cloudiness in " + city + " is " + clouds
           );
-          console.log(minTemp + " is the lowest temperature today");
-          console.log(maxTemp + " is the high temperature today");
+          document.getElementById("today").textContent = `Today's Forecast: 
+            `;
+          document.getElementById("currentTemp").textContent =
+            `The current temperature is ` + data.current.temp + `F`;
+          document.getElementById("maxTemp").textContent =
+            `Highs of ` + data.daily[0].temp.max + `F today.`;
+          document.getElementById("lowTemp").textContent =
+            `Lows of ` + data.daily[0].temp.min + `F today.`;
+          document.getElementById("humidity").textContent =
+            `Humidity is ` + data.current.humidity + `%`;
+          document.getElementById("description").textContent =
+            `Weather today is described as: ` +
+            data.current.weather[0].description;
+          //   console.log(dailyMin);
+          //   console.log(description);
         });
     });
 }
