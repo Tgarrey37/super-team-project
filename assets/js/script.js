@@ -22,8 +22,10 @@ function checkDates() {
     })
     .then((data) => {
       console.log(data);
-      console.log(data.coord.lon);
-      console.log(data.coord.lat);
+      const longitude = data.coord.lon;
+      const latitude = data.coord.lat;
+      console.log("longitude of " + city + " is " + longitude);
+      console.log("latitude of " + city + " is " + latitude);
     });
 }
 
