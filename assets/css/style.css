@@ -1,3 +1,41 @@
+/* Style for Nav and H1 - Ben */
 h1 {
     color: blue;
+}
+header {
+    background-color: aquamarine;
+    align-items: center;
+    display: flex;
+    flex-direction:column;
+    font-size: xx-large;
+    font-weight: bold;
+    color: black;
+}
+nav {
+    background-color: aquamarine;
+    align-items: center;
+    display: flex;
+    flex-direction:row;
+    font-size: large;
+    font-weight: bold;
+    color: black;
+    justify-content: space-between;
+}
+.homeBtn {
+    margin-left: 250px;
+}
+.historyBtn {
+    margin-right: 250px;
+}
+/* End of nav and h1 style - Ben */
+
+/* Creating different styling for my recent search card - Taylor */
+.recentSearches {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 400px;
+  padding: 50px;
+  width: 400px;
+  background-color: aquamarine;
 }
