@@ -23,6 +23,7 @@
 
     <div>
       <!-- input x2 or form AND button Jake-->
+      <div class="searchFields">
       <div class="field">
         <label class="label">City</label>
         <div class="control">
@@ -34,6 +35,7 @@
           />
         </div>
       </div>
+    
 
       <div class="field">
         <label class="label">Dates</label>
@@ -53,7 +55,7 @@
           </span>
         </div>
       </div>
-
+    
       <div class="field is-grouped">
         <div class="control">
           <button class="button is-link" id="checkDatesBtn">Check Dates</button>
@@ -62,6 +64,21 @@
           <button class="button is-link is-light" id="cancelBtn">Cancel</button>
         </div>
       </div>
+    </div>
+  </div>
+    <div class="weatherResults">
+      <div class="card mx-auto mt-5" style="width: 18rem;">
+        <div class="card-body justify-content-center">
+            <h2 class="card-title" id = "today"></h2>
+            <h6 class="card-subtitle mb-2 text-muted" id = "currentTemp"></h6>
+            <h6 class="card-subtitle mb-2 text-muted" id = "maxTemp"></h6>
+            <h6 class="card-subtitle mb-2 text-muted" id = "lowTemp"></h6>
+            <h6 class="card-subtitle mb-2 text-muted" id = "humidity"></h6>
+
+            <!-- <br> Highs of F.<br> Lows of F.<br> Humidity is %.<br> Wind speed of  MPH.<br> Uv is -->
+            <p class="card-text" id = "description"></p>
+        </div>
+    </div>
     </div>
 
     <!-- section for recent searches. card thing maybe? Taylor-->
@@ -79,7 +96,8 @@
             </div>
         </div>
     </div> -->
-
+    <script src="./assets/js/script.js"></script>
     <script src="./assets/js/jasperScript.js"></script>
+    
   </body>
 </html>
