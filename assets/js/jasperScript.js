@@ -44,14 +44,14 @@ function checkDates() {
           console.log(data);
           const temp = data.current.temp;
           const clouds = data.current.clouds;
-          //   const dailyMin = data.daily.temp.min;
-          //   const description = data.main.description;
+          const minTemp = data.daily[0].temp.min;
+          const maxTemp = data.daily[0].temp.max;
           console.log("The temperature in " + city + " is currently " + temp);
           console.log(
             "The percentage of cloudiness in " + city + " is " + clouds
           );
-          //   console.log(dailyMin);
-          //   console.log(description);
+          console.log(minTemp + " is the lowest temperature today");
+          console.log(maxTemp + " is the high temperature today");
         });
     });
 }

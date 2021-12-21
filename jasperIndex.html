@@ -76,9 +76,71 @@
         <div class="card-content">
             <div id="recentSearches" class="content">
                 Recent Searches
+=======
+        <h1 class="headerH1">Trip Planner</h1>
+    </header>
+    <nav>
+        <<<<<<< HEAD <a class="homeBtn" href=“#home” class=“active”>Home</a>
+            <a class="historyBtn" href=“#history” class=“active”>History</a>
+
+            =======
+
+            <a id="homeBtn" href=“#home” class=“active”>Home</a>
+            <a id="historyBtn" href=“#history” class=“active”>History</a>
+
+            >>>>>>> main
+    </nav>
+
+    <div class="searchFields">
+        <!-- input x2 or form AND button Jake-->
+        <div class="field">
+            <label class="label">City</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Text input">
             </div>
         </div>
-    </div> -->
+
+        <div class="field">
+            <label class="label">Dates</label>
+            <div class="control has-icons-left has-icons-right">
+                <input class="input is-success" type="text" placeholder="Enter Date Here" value="">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+                <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                </span>
+            </div>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+
+
+                <button class="button is-link" id="checkDatesBtn">Check Dates</button>
+            </div>
+            <div class="control">
+                <button class="button is-link is-light" id="cancelBtn">Cancel</button>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- section for recent searches. card thing maybe? Taylor-->
+    <section class="is-flex ">
+        <div class="card recentSearches has-text-danger">
+            <div class="card-content">
+                <div id="recentSearches" class="content">
+                    Recent Searches
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
 
     <script src="./assets/js/jasperScript.js"></script>
   </body>
