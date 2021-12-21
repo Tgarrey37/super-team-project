@@ -1,3 +1,6 @@
+
+
+
 var searchFields = document.querySelector(".searchFields");
 var checkDatesBtn = document.querySelector("#checkDatesBtn");
 var weatherResults = document.querySelector("");
@@ -24,3 +27,4 @@ checkDatesBtn.addEventListener("click", function() {
 //             </div>
 //         </div>
 // `
+
