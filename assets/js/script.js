@@ -1,4 +1,3 @@
-
 // var data = ;
 
 var searchFields = document.querySelector(".searchFields");
@@ -14,16 +13,12 @@ function display(element) {
   element.style.display = "block";
 }
 
-
-checkDatesBtn.addEventListener("click", function() {
-    hide(searchFields);
-    hide(inputDates);
-    // hide(checkDatesBtn);
-    // hide(cancelBtn);
-    display(weatherResults);
-})
+checkDatesBtn.addEventListener("click", function () {
+  hide(searchFields);
+  hide(inputDates);
+  // hide(checkDatesBtn);
+  // hide(cancelBtn);
+  display(weatherResults);
+});
 
 // weatherResults.innerHTML = `
-
-
-

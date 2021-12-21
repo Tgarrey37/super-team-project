@@ -44,23 +44,28 @@ function checkDates() {
           console.log(data);
           const temp = data.current.temp;
           const clouds = data.current.clouds;
-          //   const dailyMin = data.daily.temp.min;
-          //   const description = data.main.description;
+          const minTemp = data.daily[0].temp.min;
+          const maxTemp = data.daily[0].temp.max;
           console.log("The temperature in " + city + " is currently " + temp);
           console.log(
             "The percentage of cloudiness in " + city + " is " + clouds
           );
-            document.getElementById("today").textContent = `Today's Forecast: 
+          document.getElementById("today").textContent = `Today's Forecast: 
             `;
-            document.getElementById("currentTemp").textContent=`The current temperature is ` + data.current.temp + `F`;
-            document.getElementById("maxTemp").textContent=`Highs of ` + data.daily[0].temp.max + `F today.`;
-            document.getElementById("lowTemp").textContent=`Lows of ` + data.daily[0].temp.min + `F today.`;
-            document.getElementById("humidity").textContent=`Humidity is ` + data.current.humidity + `%`;
-            document.getElementById("description").textContent=`Weather today is described as: ` + data.current.weather[0].description ;
+          document.getElementById("currentTemp").textContent =
+            `The current temperature is ` + data.current.temp + `F`;
+          document.getElementById("maxTemp").textContent =
+            `Highs of ` + data.daily[0].temp.max + `F today.`;
+          document.getElementById("lowTemp").textContent =
+            `Lows of ` + data.daily[0].temp.min + `F today.`;
+          document.getElementById("humidity").textContent =
+            `Humidity is ` + data.current.humidity + `%`;
+          document.getElementById("description").textContent =
+            `Weather today is described as: ` +
+            data.current.weather[0].description;
           //   console.log(dailyMin);
           //   console.log(description);
-        })
-        
+        });
     });
 }
 
