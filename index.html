@@ -20,8 +20,37 @@
         <a class = "historyBtn" href=“#history” class=“active”>History</a>
         
     </nav>
+
     <div>
         <!-- input x2 or form AND button Jake-->
+        <div class="field">
+            <label class="label">City</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Text input">
+            </div>
+          </div>
+          
+          <div class="field">
+            <label class="label">Dates</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-success" type="text" placeholder="Enter Date Here" value="">
+              <span class="icon is-small is-left">
+                <i class="fas fa-user"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </div>
+          </div>
+          
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link">Check Dates</button>
+            </div>
+            <div class="control">
+              <button class="button is-link is-light">Cancel</button>
+            </div>
+          </div>
     </div>
 
     <!-- section for recent searches. card thing maybe? Taylor-->
@@ -33,9 +62,14 @@
         </div>
     </div>
 
-
-
-
+    <!-- section for recent searches. card thing maybe? Taylor-->
+    <div class="card recentSearches has-text-danger">
+        <div class="card-content">
+            <div id="recentSearches" class="content">
+                Recent Searches
+            </div>
+        </div>
+    </div>
 
 
 
