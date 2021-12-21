@@ -31,11 +31,7 @@ nav {
 
 /* Creating different styling for my recent search card - Taylor */
 .recentSearches {
-  /* display: flex;
-  flex-direction: column; */
   text-align: center;
-  /* margin-top: 400px;
-  margin-left: 700px; */
   padding: 50px;
   width: 400px;
   background-color: aquamarine;
