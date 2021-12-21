@@ -1,3 +1,4 @@
+/* Style for Nav and H1 - Ben */
 h1 {
     color: blue;
 }
@@ -26,7 +27,7 @@ nav {
 .historyBtn {
     margin-right: 250px;
 }
-
+/* End of nav and h1 style - Ben */
 
 /* Creating different styling for my recent search card - Taylor */
 .recentSearches {
