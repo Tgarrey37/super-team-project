@@ -3,7 +3,7 @@ const today = new Date();
 console.log(today)
 let limit = moment().add(7, 'days');
 console.log(limit)
-document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
+// document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
 
 function checkDates() {
   if(inputDates > limit){
