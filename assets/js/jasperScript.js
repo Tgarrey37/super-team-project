@@ -1,8 +1,14 @@
 const APIKey = "c5a2aadd2ba954ccd8c6e99df9c362c9";
-
+const today = new Date();
+console.log(today)
+let limit = moment().add(7, 'days');
+console.log(limit)
 document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
 
 function checkDates() {
+  if(inputDates > limit){
+    return;
+  } else {
   const city = document.getElementById("inputCity").value;
   var queryURL =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -67,7 +73,7 @@ function checkDates() {
           //   console.log(description);
         });
     });
-}
+}}
 
 // fetch(“https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query=eiffel%20tower&lang=en_US&units=km”, {
 // 	“method”: “GET”,

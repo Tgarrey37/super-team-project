@@ -16,7 +16,7 @@ function display(element) {
 checkDatesBtn.addEventListener("click", function () {
   hide(searchFields);
   hide(inputDates);
-  // hide(checkDatesBtn);
+  checkDates();
   // hide(cancelBtn);
   display(weatherResults);
 });
