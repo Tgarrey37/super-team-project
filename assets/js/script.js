@@ -18,9 +18,8 @@ function display(element) {
 checkDatesBtn.addEventListener("click", function () {
   hide(searchFields);
   hide(inputDates);
-  checkDates();
+  //checkDates();
   // hide(cancelBtn);
-  display(weatherResults);
   display(weatherResults);
   localStorage.setItem("cityInfo", JSON.stringify(inputCity.value));
   document.getElementById("recentSearches").innerHTML =
