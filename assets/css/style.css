@@ -49,3 +49,22 @@ nav {
   background-color: blue;
   padding: 1rem;
 }
+.hotel-results {
+  background: aquamarine;
+  display: flex;
+  font-size: 16px;
+}
+
+.hotelName {
+  
+  color: red;
+
+}
+
+.hotelPrice {
+  color: red;
+}
+
+.hotelRating {
+  color: red;
+}
