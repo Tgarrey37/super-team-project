@@ -132,8 +132,9 @@ function checkDates() {
               method: "GET",
               headers: {
                 "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
-                "x-rapidapi-key":
-                  "3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76",
+                // "x-rapidapi-key":
+                //   "3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76",
+                  "x-rapidapi-key": "910fdf912amshb0c25005d22a18bp176efajsncf775f14afc7"
               },
             })
               .then((response) => {
@@ -184,8 +185,9 @@ function checkDates() {
                   method: "GET",
                   headers: {
                     "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
-                    "x-rapidapi-key":
-                      "3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76",
+                    // "x-rapidapi-key":
+                    //   "3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76",
+                      "x-rapidapi-key": "910fdf912amshb0c25005d22a18bp176efajsncf775f14afc7"
                   },
                 })
                   .then((response) => {
@@ -221,6 +223,59 @@ function checkDates() {
 
                     };
                   });
+                  var URL3 = 
+                  "https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng?longitude="
+                  + lon +
+                  "&latitude=" +
+                  lat +
+                  "&lunit=mi&currency=USD&limit=5&lang=en_US";
+                  console.log(URL3);
+
+                 fetch(URL3, {
+                   method: "GET",
+                   headers: {
+                    "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
+                    // "x-rapidapi-key":
+                    //   "3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76",
+                    "x-rapidapi-key": "910fdf912amshb0c25005d22a18bp176efajsncf775f14afc7",
+                   },
+                 })
+                 .then((response) => {
+                   console.log(response.json);
+                   return response.json();
+                 })
+                 .catch((err) => {
+                   console.log(err);
+                 })
+                 .then((data) => {
+                   console.log(data)
+
+                   for (let i = 0; i < data.data.length; i++) {
+                     if (data.data[i] !== undefined) {
+                       var attrName = data.data[i].name;
+                       console.log(attrName);
+                       var webURL = data.data[i].web_url;
+                       console.log(webURL);
+                       var attrPhoto = data.data[i].photo.images.small.url;
+                       console.log(attrPhoto);
+
+
+                       var card = `
+                       <div id = "attrCard">
+                       
+                          <h6 class="attraction-name">${attrName}</h6>
+                          
+                          <a href="${webURL}"><img src="${attrPhoto}" width="200" height = "200" id = "attrPhoto"></a>
+                          
+                          </div>
+                          `
+                          
+                          $(".attraction-info").append(card);
+                     }
+                     
+                   }
+                 })
+                  
               });
             });
           });
