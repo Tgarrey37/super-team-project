@@ -125,6 +125,7 @@ function checkDates() {
             document.getElementById("highSeventh").textContent =
               "High of " + data.daily[6].temp.max;
 
+            // Hotel Data
             var URL1 = `https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query=${city}&lang=en_US&units=mi&appid=3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76`;
 
             fetch(URL1, {
@@ -198,49 +199,34 @@ function checkDates() {
                     console.log(data);
 
                     for (let i = 0; i < data.data.length; i++) {
-                      var hotelName = data.data[i].name;
-                      console.log("Hotel Name: " + hotelName);
-                      var hotelPrice = data.data[i].price;
-                      console.log("Hotel Price Range: " + hotelPrice);
-                      var hotelRating = data.data[i].rating;
-                      console.log("Hotel Rating: " + hotelRating);
-                    }
+           
+                      if (data.data[i].name !== undefined) {
+                        var hotelName = data.data[i].name;
+                        console.log("Hotel Name: " + hotelName);
+                        var hotelPrice = data.data[i].price;
+                        console.log("Hotel Price Range: " + hotelPrice);
+                        var hotelRating = data.data[i].rating;
+                        console.log("Hotel Rating: " + hotelRating);
+
+                        var card = `
+                          <h6 class="hotelName">Hotel Name: ${hotelName}</h6>
+                          <span class="hotelPrice">Hotel Price Rance: ${hotelPrice}</span>
+                          <span class="hotelRating">Hotel Rating: ${hotelRating}</span>
+                          `
+
+                          $(".hotel-info").append(card);
+                      }
+                
+             
+
+                    };
                   });
               });
+            });
           });
-      });
-  }
-}
+        }
+      };
+    
 
-//$(document).ready(function() {
-//$("#checkDatesBtn").on("click", function(){
 
-//var cityName = $("#inputCity").val().trim();
-//var URL1 = "https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query="+&lang=en_US&units=mi";
 
-//var URL2 = "https://travel-advisor.p.rapidapi.com/locations/search?query="+cityName+"&limit=30&offset=0&units=mi&location_id=1&currency=USD&sort=relevance&lang=en_US"
-
-//fetch(URL1)
-//.then(function(response) {
-//  return response.json();
-//}).then(function(data) {
-//  console.log(data);
-
-//})
-
-//})
-
-//})
-// fetch(“https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query=eiffel%20tower&lang=en_US&units=km”, {
-// 	“method”: “GET”,
-// 	“headers”: {
-// 		“x-rapidapi-host”: “travel-advisor.p.rapidapi.com”,
-// 		“x-rapidapi-key”: “ac0e3c3af6msh7dd67cc95fdd673p1586bbjsn29d733c732e2"
-// 	}
-// })
-// .then(response => {
-// 	console.log(response);
-// })
-// .catch(err => {
-// 	console.error(err);
-// });
