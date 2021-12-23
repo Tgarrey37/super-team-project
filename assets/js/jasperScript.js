@@ -93,10 +93,39 @@ function checkDates() {
             document.getElementById("highThird").textContent =
               "High of " + data.daily[2].temp.max;
 
-            var URL1 =
-              "https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query=" +
-              city +
-              "&lang=en_US&units=mi&appid=3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76";
+            // forecast for fourth day
+            document.getElementById("descrFourth").textContent =
+              "The weather will be " + data.daily[3].weather[0].description;
+            document.getElementById("lowFourth").textContent =
+              "Low of " + data.daily[3].temp.min;
+            document.getElementById("highFourth").textContent =
+              "High of " + data.daily[3].temp.max;
+
+            // forecast for fifth day
+            document.getElementById("descrFifth").textContent =
+              "The weather will be " + data.daily[4].weather[0].description;
+            document.getElementById("lowFifth").textContent =
+              "Low of " + data.daily[4].temp.min;
+            document.getElementById("highFifth").textContent =
+              "High of " + data.daily[4].temp.max;
+
+            // forecast for sixth day
+            document.getElementById("descrSixth").textContent =
+              "The weather will be " + data.daily[5].weather[0].description;
+            document.getElementById("lowSixth").textContent =
+              "Low of " + data.daily[5].temp.min;
+            document.getElementById("highSixth").textContent =
+              "High of " + data.daily[5].temp.max;
+
+            // forecast for seventh day
+            document.getElementById("descrSeventh").textContent =
+              "The weather will be " + data.daily[6].weather[0].description;
+            document.getElementById("lowSeventh").textContent =
+              "Low of " + data.daily[6].temp.min;
+            document.getElementById("highSeventh").textContent =
+              "High of " + data.daily[6].temp.max;
+
+            var URL1 = `https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query=${city}&lang=en_US&units=mi&appid=3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76`;
 
             fetch(URL1, {
               method: "GET",
