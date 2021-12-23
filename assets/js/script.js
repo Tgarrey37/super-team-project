@@ -15,7 +15,7 @@ function hide(element) {
 function display(element) {
   element.style.display = "block";
 }
-
+searchDisplay();
 checkDatesBtn.addEventListener("click", function () {
   hide(searchFields);
   hide(inputDates);
@@ -23,16 +23,22 @@ checkDatesBtn.addEventListener("click", function () {
   // hide(cancelBtn);
 
   var search = {
-    city: inputCity.value,
+    city: inputCity.value.toUpperCase(),
     date: inputDates.value,
   };
   display(weatherResults);
   storage.push(search);
   localStorage.setItem("cityInfo", JSON.stringify(storage));
-  document.getElementById("recentSearches").innerHTML =
-    localStorage.getItem("cityInfo");
+  searchDisplay();
 });
-
+function searchDisplay() {
+  document.getElementById("recentSearches").innerHTML = "";
+  for (var i = 0; i < storage.length; i++) {
+    var li = document.createElement("li");
+    li.textContent = `${storage[i].city} ${storage[i].date}`;
+    document.getElementById("recentSearches").append(li);
+  }
+}
 // hide(checkDatesBtn);
 // hide(cancelBtn);
 // display(weatherResults);
