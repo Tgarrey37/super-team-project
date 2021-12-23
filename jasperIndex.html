@@ -10,6 +10,7 @@
   <title>Trip Planner</title>
 </head>
 
+
 <body>
   <header>
     <h1 class="headerH1">Trip Planner</h1>
@@ -26,19 +27,46 @@
         <label class="label">City</label>
         <div class="control">
           <input class="input" id="inputCity" type="text" placeholder="Text input" />
+
         </div>
       </div>
 
-      <div class="field">
-        <label class="label">Dates</label>
-        <div class="control has-icons-left has-icons-right">
-          <input class="input is-success" id="inputDates" type="text" placeholder="Enter Date Here" value="" />
-          <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-          </span>
-          <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-          </span>
+
+        <div class="field">
+          <label class="label" for="inputDates">Start date</label>
+          <div class="control has-icons-left has-icons-right">
+            <input
+              class="input is-success"
+              id="inputDates"
+              type="date"
+              value=""
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label" for="inputDates1">End date</label>
+          <div class="control has-icons-left has-icons-right">
+            <input
+              class="input is-success"
+              id="inputDates1"
+              type="date"
+              value=""
+            />
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+            <span class="icon is-small is-right">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+
         </div>
       </div>
 
@@ -78,10 +106,54 @@
       </div>
 
     </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-  <script src="./assets/js/script.js"></script>
-  <script src="./assets/js/jasperScript.js"></script>
-</body>
+ 
 
+    <div class="flex">
+      <div class="forecast card" id="cardOne">
+        <p>Day 2 of your stay</p>
+        <p id="descrTomorrow"></p>
+        <p id="lowTomorrow"></p>
+        <p id="highTomorrow"></p>
+      </div>
+
+      <div class="forecast card" id="cardTwo">
+        <p>Day 3 of your stay</p>
+        <p id="descrThird"></p>
+        <p id="lowThird"></p>
+        <p id="highThird"></p>
+      </div>
+
+      <div class="forecast card" id="cardThree">
+        <p>Day 4 of your stay</p>
+        <p id="descrFourth"></p>
+        <p id="lowFourth"></p>
+        <p id="highFourth"></p>
+      </div>
+
+      <div class="forecast card" id="cardFour">
+        <p>Day 5 of your stay</p>
+        <p id="descrFifth"></p>
+        <p id="lowFifth"></p>
+        <p id="highFifth"></p>
+      </div>
+
+      <div class="forecast card" id="cardFive">
+        <p>Day 6 of your stay</p>
+        <p id="descrSixth"></p>
+        <p id="lowSixth"></p>
+        <p id="highSixth"></p>
+      </div>
+
+      <div class="forecast card" id="cardSix">
+        <p>Day 7 of your stay</p>
+        <p id="descrSeventh"></p>
+        <p id="lowSeventh"></p>
+        <p id="highSeventh"></p>
+      </div>
+    </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/jasperScript.js"></script>
+  </body>
 </html>
+
