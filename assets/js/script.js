@@ -5,8 +5,9 @@ var checkDatesBtn = document.querySelector("#checkDatesBtn");
 var weatherResults = document.querySelector(".weatherResults");
 var inputDates = document.querySelector("#inputDates");
 var cancelBtn = document.querySelector("#cancelBtn");
+var storage = JSON.parse(localStorage.getItem("cityInfo")) || [];
 
-const city = document.getElementById("inputCity").value;
+var city = document.getElementById("inputCity").value;
 
 function hide(element) {
   element.style.display = "none";
@@ -20,11 +21,18 @@ checkDatesBtn.addEventListener("click", function () {
   hide(inputDates);
   //checkDates();
   // hide(cancelBtn);
+
+  var search = {
+    city: inputCity.value,
+    date: inputDates.value,
+  };
   display(weatherResults);
-  localStorage.setItem("cityInfo", JSON.stringify(inputCity.value));
+  storage.push(search);
+  localStorage.setItem("cityInfo", JSON.stringify(storage));
   document.getElementById("recentSearches").innerHTML =
     localStorage.getItem("cityInfo");
 });
+
 // hide(checkDatesBtn);
 // hide(cancelBtn);
 // display(weatherResults);
