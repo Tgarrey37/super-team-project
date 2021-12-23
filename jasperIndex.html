@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Trip Planner</title>
-  </head>
 
-  <body>
-    <header>
-      <h1 class="headerH1">Trip Planner</h1>
-    </header>
-    <nav>
-      <a class="homeBtn" href="“#home”" class="“active”">Home</a>
-      <a class="historyBtn" href="“#history”" class="“active”">History</a>
-    </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css" />
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Trip Planner</title>
+</head>
 
-    <div>
-      <div class="searchFields">
-        <div class="field">
-          <label class="label">City</label>
-          <div class="control">
-            <input
-              class="input"
-              id="inputCity"
-              type="text"
-              placeholder="Text input"
-            />
-          </div>
+
+<body>
+  <header>
+    <h1 class="headerH1">Trip Planner</h1>
+  </header>
+  <nav>
+    <a class="homeBtn" href="“#home”" class="“active”">Home</a>
+    <a class="historyBtn" href="“#history”" class="“active”">History</a>
+  </nav>
+
+  <div>
+    <!-- input x2 or form AND button Jake-->
+    <div class="searchFields">
+      <div class="field">
+        <label class="label">City</label>
+        <div class="control">
+          <input class="input" id="inputCity" type="text" placeholder="Text input" />
+
         </div>
+      </div>
+
 
         <div class="field">
           <label class="label" for="inputDates">Start date</label>
@@ -69,46 +66,47 @@
               <i class="fas fa-check"></i>
             </span>
           </div>
-        </div>
 
-        <div class="field is-grouped">
-          <div class="control">
-            <button class="button is-link" id="checkDatesBtn">
-              Check Dates
-            </button>
-          </div>
-          <div class="control">
-            <button class="button is-link is-light" id="cancelBtn">
-              Cancel
-            </button>
-          </div>
         </div>
       </div>
-    </div>
-    <div class="weatherResults">
-      <div class="card mx-auto mt-5" style="width: 18rem">
-        <div class="card-body justify-content-center">
-          <h2 class="card-title" id="today"></h2>
-          <h6 class="card-subtitle mb-2 text-muted" id="currentTemp"></h6>
-          <h6 class="card-subtitle mb-2 text-muted" id="maxTemp"></h6>
-          <h6 class="card-subtitle mb-2 text-muted" id="lowTemp"></h6>
-          <h6 class="card-subtitle mb-2 text-muted" id="humidity"></h6>
 
-          <!-- <br> Highs of F.<br> Lows of F.<br> Humidity is %.<br> Wind speed of  MPH.<br> Uv is -->
-          <p class="card-text" id="description"></p>
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link" id="checkDatesBtn">
+            Check Dates
+          </button>
+        </div>
+        <div class="control">
+          <button class="button is-link is-light" id="cancelBtn">
+            Cancel
+          </button>
         </div>
       </div>
     </div>
+  </div>
+  <div class="weatherResults">
+    <div class="card mx-auto mt-5" style="width: 18rem">
+      <div class="card-body justify-content-center">
+        <h2 class="card-title" id="today"></h2>
+        <h6 class="card-subtitle mb-2 text-muted" id="currentTemp"></h6>
+        <h6 class="card-subtitle mb-2 text-muted" id="maxTemp"></h6>
+        <h6 class="card-subtitle mb-2 text-muted" id="lowTemp"></h6>
+        <h6 class="card-subtitle mb-2 text-muted" id="humidity"></h6>
 
-    <!-- section for recent searches. card thing maybe? Taylor-->
-    <div class="card recentSearches has-text-danger">
-      <div class="card-content">
-        <div id="recentSearches" class="content">Recent Searches</div>
+        <!-- <br> Highs of F.<br> Lows of F.<br> Humidity is %.<br> Wind speed of  MPH.<br> Uv is -->
+        <p class="card-text" id="description"></p>
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="./assets/js/script.js"></script>
-    <script src="./assets/js/jasperScript.js"></script>
+  </div>
+
+  <!-- section for recent searches. card thing maybe? Taylor-->
+  <div class="card recentSearches has-text-danger">
+    <div class="card-content">
+      <div class="content">Recent Searches <ul id="recentSearches"></ul>
+      </div>
+
+    </div>
+ 
 
     <div class="flex">
       <div class="forecast card" id="cardOne">
@@ -153,5 +151,9 @@
         <p id="highSeventh"></p>
       </div>
     </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/jasperScript.js"></script>
   </body>
 </html>
+
