@@ -126,15 +126,18 @@ function checkDates() {
               "High of " + data.daily[6].temp.max;
 
             // Hotel Data
-            var URL1 = `https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query=${city}&lang=en_US&units=mi&appid=3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76`;
+            var apiKeyj = "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2a";
+            var URL1 = "https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query="
+            +city+
+            "&lang=en_US&units=mi&appid="
+            +apiKeyj;
 
             fetch(URL1, {
               method: "GET",
               headers: {
                 "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
-                // "x-rapidapi-key":
-                //   "3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76",
-                  "x-rapidapi-key": "910fdf912amshb0c25005d22a18bp176efajsncf775f14afc7"
+                "x-rapidapi-key":
+                  "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2",
               },
             })
               .then((response) => {
@@ -159,25 +162,15 @@ function checkDates() {
 
                 var date = document.getElementById("inputDates").value;
                 console.log(date);
-                var dateMonth = date.slice(0, 2);
-                console.log(dateMonth);
-                var dateDay = date.slice(3, 5);
-                console.log(dateDay);
-                var dateYear = date.slice(6, 10);
-                console.log(dateYear);
 
                 var URL2 =
-                  "https://travel-advisor.p.rapidapi.com/hotels/list-by-latlng?latitude=" +
-                  lat +
-                  "&longitude=" +
-                  lon +
-                  "&lang=en_US&limit=10&amenities=pool%2Cspa&rooms=1&currency=USD&checkin=" +
-                  dateMonth +
-                  "%2F" +
-                  dateDay +
-                  "%2F" +
-                  dateYear +
-                  "&distance=10";
+                  "https://travel-advisor.p.rapidapi.com/hotels/list-by-latlng?latitude="
+                  +lat+
+                  "&longitude="
+                  +lon+
+                  "&lang=en_US&limit=5&adults=1&amenities=pool%2Cspa&rooms=1&currency=USD&checkin="
+                  +date+
+                  "&nights=1&distance=10"
 
                 console.log(URL2);
 
@@ -185,9 +178,8 @@ function checkDates() {
                   method: "GET",
                   headers: {
                     "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
-                    // "x-rapidapi-key":
-                    //   "3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76",
-                      "x-rapidapi-key": "910fdf912amshb0c25005d22a18bp176efajsncf775f14afc7"
+                    "x-rapidapi-key":
+                      "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2",
                   },
                 })
                   .then((response) => {
@@ -203,6 +195,8 @@ function checkDates() {
                     for (let i = 0; i < data.data.length; i++) {
            
                       if (data.data[i].name !== undefined) {
+                        var hotelPhoto = data.data[i].photo.images.small.url;
+                        console.log(hotelPhoto);
                         var hotelName = data.data[i].name;
                         console.log("Hotel Name: " + hotelName);
                         var hotelPrice = data.data[i].price;
@@ -211,9 +205,12 @@ function checkDates() {
                         console.log("Hotel Rating: " + hotelRating);
 
                         var card = `
+                          <div class="hotel-list">
+                          <a class="img" Link href="${hotelPhoto}"><img src="${hotelPhoto}" alt="Photo of Hotel"></a>
                           <h6 class="hotelName">Hotel Name: ${hotelName}</h6>
-                          <span class="hotelPrice">Hotel Price Rance: ${hotelPrice}</span>
+                          <span class="hotelPrice">Hotel Price Range: ${hotelPrice}</span>
                           <span class="hotelRating">Hotel Rating: ${hotelRating}</span>
+                          </div>
                           `
 
                           $(".hotel-info").append(card);

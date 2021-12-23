@@ -50,19 +50,26 @@ nav {
   padding: 1rem;
 }
 .hotel-results {
-  background: aquamarine;
   display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   font-size: 16px;
 }
 
-.hotelName {
-  
-  color: red;
-
+.hotel-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.hotelPrice {
-  color: red;
+.hotel-list {
+  display: flex;
+  margin: 20px;
+  height: 200px;
+  width: 400px;
+  color: whitesmoke;
+  background-color: rebeccapurple;
+  padding: 1rem;
 }
 
 .hotelRating {
