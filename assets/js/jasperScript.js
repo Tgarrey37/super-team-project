@@ -7,9 +7,22 @@ console.log(today);
 let limit = moment().add(7, "days");
 console.log(limit);
 // document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
+let start = document.getElementById("inputDates").value;
+const end = document.getElementById("inputDates1").value;
+
+function getDates(date1, date2) {
+  const tripArray = [];
+  while (date1 <= date2) {
+    tripArray.push(date1);
+    date1 = date1 + 1;
+    console.log(tripArray);
+    return tripArray;
+  }
+}
 
 function checkDates() {
-  if (inputDates > limit) {
+  getDates(start, end);
+  if (inputDates > limit || inputDates1 > limit) {
     return;
   } else {
     const city = document.getElementById("inputCity").value;
@@ -126,18 +139,14 @@ function checkDates() {
               "High of " + data.daily[6].temp.max;
 
             // Hotel Data
-            var apiKeyj = "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2a";
-            var URL1 = "https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query="
-            +city+
-            "&lang=en_US&units=mi&appid="
-            +apiKeyj;
+            var URL1 = `https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query=${city}&lang=en_US&units=mi&appid=3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76`;
 
             fetch(URL1, {
               method: "GET",
               headers: {
                 "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
                 "x-rapidapi-key":
-                  "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2",
+                  "3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76",
               },
             })
               .then((response) => {
@@ -162,15 +171,25 @@ function checkDates() {
 
                 var date = document.getElementById("inputDates").value;
                 console.log(date);
+                var dateMonth = date.slice(0, 2);
+                console.log(dateMonth);
+                var dateDay = date.slice(3, 5);
+                console.log(dateDay);
+                var dateYear = date.slice(6, 10);
+                console.log(dateYear);
 
                 var URL2 =
-                  "https://travel-advisor.p.rapidapi.com/hotels/list-by-latlng?latitude="
-                  +lat+
-                  "&longitude="
-                  +lon+
-                  "&lang=en_US&limit=5&adults=1&amenities=pool%2Cspa&rooms=1&currency=USD&checkin="
-                  +date+
-                  "&nights=1&distance=10"
+                  "https://travel-advisor.p.rapidapi.com/hotels/list-by-latlng?latitude=" +
+                  lat +
+                  "&longitude=" +
+                  lon +
+                  "&lang=en_US&limit=10&amenities=pool%2Cspa&rooms=1&currency=USD&checkin=" +
+                  dateMonth +
+                  "%2F" +
+                  dateDay +
+                  "%2F" +
+                  dateYear +
+                  "&distance=10";
 
                 console.log(URL2);
 
@@ -179,7 +198,7 @@ function checkDates() {
                   headers: {
                     "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
                     "x-rapidapi-key":
-                      "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2",
+                      "3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76",
                   },
                 })
                   .then((response) => {
@@ -193,10 +212,7 @@ function checkDates() {
                     console.log(data);
 
                     for (let i = 0; i < data.data.length; i++) {
-           
                       if (data.data[i].name !== undefined) {
-                        var hotelPhoto = data.data[i].photo.images.small.url;
-                        console.log(hotelPhoto);
                         var hotelName = data.data[i].name;
                         console.log("Hotel Name: " + hotelName);
                         var hotelPrice = data.data[i].price;
@@ -205,80 +221,17 @@ function checkDates() {
                         console.log("Hotel Rating: " + hotelRating);
 
                         var card = `
-                          <div class="hotel-list">
-                          <a class="img" Link href="${hotelPhoto}"><img src="${hotelPhoto}" alt="Photo of Hotel"></a>
                           <h6 class="hotelName">Hotel Name: ${hotelName}</h6>
-                          <span class="hotelPrice">Hotel Price Range: ${hotelPrice}</span>
+                          <span class="hotelPrice">Hotel Price Rance: ${hotelPrice}</span>
                           <span class="hotelRating">Hotel Rating: ${hotelRating}</span>
-                          </div>
-                          `
+                          `;
 
-                          $(".hotel-info").append(card);
+                        $(".hotel-info").append(card);
                       }
-                
-             
-
-                    };
+                    }
                   });
-                  var URL3 = 
-                  "https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng?longitude="
-                  + lon +
-                  "&latitude=" +
-                  lat +
-                  "&lunit=mi&currency=USD&limit=5&lang=en_US";
-                  console.log(URL3);
-
-                 fetch(URL3, {
-                   method: "GET",
-                   headers: {
-                    "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
-                    // "x-rapidapi-key":
-                    //   "3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76",
-                    "x-rapidapi-key": "910fdf912amshb0c25005d22a18bp176efajsncf775f14afc7",
-                   },
-                 })
-                 .then((response) => {
-                   console.log(response.json);
-                   return response.json();
-                 })
-                 .catch((err) => {
-                   console.log(err);
-                 })
-                 .then((data) => {
-                   console.log(data)
-
-                   for (let i = 0; i < data.data.length; i++) {
-                     if (data.data[i] !== undefined) {
-                       var attrName = data.data[i].name;
-                       console.log(attrName);
-                       var webURL = data.data[i].web_url;
-                       console.log(webURL);
-                       var attrPhoto = data.data[i].photo.images.small.url;
-                       console.log(attrPhoto);
-
-
-                       var card = `
-                       <div id = "attrCard">
-                       
-                          <h6 class="attraction-name">${attrName}</h6>
-                          
-                          <a href="${webURL}"><img src="${attrPhoto}" width="200" height = "200" id = "attrPhoto"></a>
-                          
-                          </div>
-                          `
-                          
-                          $(".attraction-info").append(card);
-                     }
-                     
-                   }
-                 })
-                  
               });
-            });
           });
-        }
-      };
-    
-
-
-
+      });
+  }
+}
