@@ -37,5 +37,6 @@ function searchDisplay() {
     var li = document.createElement("li");
     li.textContent = `${storage[i].city} ${storage[i].date}`;
     document.getElementById("recentSearches").append(li);
+   
   }
 }

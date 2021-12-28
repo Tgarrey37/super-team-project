@@ -126,7 +126,7 @@ function checkDates() {
               "High of " + data.daily[6].temp.max;
 
             // Hotel Data
-            var apiKeyj = "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2a";
+            var apiKey = "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2a";
             var URL1 = "https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query="
             +city+
             "&lang=en_US&units=mi&appid="
@@ -268,17 +268,117 @@ function checkDates() {
                           `
                           
                           $(".attraction-info").append(card);
+                          
                      }
                      
                    }
                  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 var URL4 =
+                 "https://travel-advisor.p.rapidapi.com/restaurants/list-by-latlng?latitude=" +
+                 lat +
+                 "&longitude=" +
+                 lon +
+                 "&1unit=mi&currency=USD&limit=5&lang=en_US";
+               
+               console.log(URL4);
+               
+               fetch(URL4, {
+                 method: "GET",
+                 headers: {
+                   "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
+                   "x-rapidapi-key": "ac0e3c3af6msh7dd67cc95fdd673p1586bbjsn29d733c732e2",
+                 },
+               })
+                 .then((response) => {
+                   console.log(response.json);
+                   return response.json();
+                 })
+                 .catch((err) => {
+                   console.error(err);
+                 })
+                 .then((data) => {
+                   console.log(data);
+               
+                   for (let i = 0; i < data.data.length; i++) {
+                     if (data.data[i].name !== undefined) {
+                       var restaurantName = data.data[i].name;
+                       console.log("Restaurant Name: " + restaurantName);
+                       var restaurantPrice = data.data[i].price_level;
+                       console.log("Restaurant Price Range: " + restaurantPrice);
+                       var restaurantRating = data.data[i].raw_ranking;
+                       console.log("Restaurant Rating: " + restaurantRating);
+
+
+                       var card= `
+                       <div class="restaurant-list">
+                          
+                          <h6 class="restaurantName">Restaurant Name: ${restaurantName}</h6>
+                          <span class="restaurantPrice">Restaurant Price Range: ${restaurantPrice}</span>
+                          <span class="restaurantRating">Restaurant Rating: ${restaurantRating}</span>
+                          </div>
+                          `
+
+                      $(".restaurant-info").append(card);
+                      console.log(card);
+
+    
                   
-              });
-            });
+              };
+            };
           });
         }
-      };
+          
     
 
 
-
+      ,)})})}}
