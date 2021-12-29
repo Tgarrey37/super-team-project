@@ -9,9 +9,10 @@ console.log(limit);
 // document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
 
 function checkDates() {
-  const startDate = document.getElementById("inputDates");
-  const endDate = document.getElementById("inputDates1");
-  if (endDate > limit || endDate <= startDate) {
+  const startDate = document.getElementById("inputDates").value;
+  const endDate = document.getElementById("inputDates1").value;
+  if (endDate > limit || endDate < startDate) {
+    // TODO: inform the user it didn't work
     return;
   } else {
     const city = document.getElementById("inputCity").value;
