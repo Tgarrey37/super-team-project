@@ -3,9 +3,7 @@ const APIKey = "c5a2aadd2ba954ccd8c6e99df9c362c9";
 document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
 
 const today = new Date();
-console.log(today);
 let limit = moment().add(7, "days");
-console.log(limit);
 // document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
 
 function getNumberOfDays(start, end) {
@@ -16,14 +14,14 @@ function getNumberOfDays(start, end) {
 
   const timeDiff = crispyDate.getTime() - chunkyDate.getTime();
 
-  const dayDiff = Math.round(timeDiff / oneDay);
+  const dayDiff = Math.ceil(timeDiff / oneDay);
 
   return dayDiff;
 }
 
 function checkDates() {
-  const startDate = document.getElementById("inputDates").value;
-  const endDate = document.getElementById("inputDates1").value;
+  const startDate = today;
+  const endDate = new Date(document.getElementById("inputDates1").value);
   if (endDate > limit || endDate < startDate) {
     // TODO: inform the user it didn't work
     return;
@@ -191,8 +189,7 @@ function checkDates() {
                 console.log(lat);
                 console.log(lon);
 
-                var date = document.getElementById("inputDates").value;
-                console.log(date);
+                var date = today;
 
                 var URL2 =
                   "https://travel-advisor.p.rapidapi.com/hotels/list-by-latlng?latitude=" +
