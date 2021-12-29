@@ -3,15 +3,31 @@ const APIKey = "c5a2aadd2ba954ccd8c6e99df9c362c9";
 document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
 
 const today = new Date();
-console.log(today);
 let limit = moment().add(7, "days");
-console.log(limit);
 // document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
 
+function getNumberOfDays(start, end) {
+  const chunkyDate = new Date(start);
+  const crispyDate = new Date(end);
+
+  const oneDay = 1000 * 60 * 60 * 24;
+
+  const timeDiff = crispyDate.getTime() - chunkyDate.getTime();
+
+  const dayDiff = Math.ceil(timeDiff / oneDay);
+
+  return dayDiff;
+}
+
 function checkDates() {
-  if (inputDates > limit) {
+  const startDate = today;
+  const endDate = new Date(document.getElementById("inputDates1").value);
+  if (endDate > limit || endDate < startDate) {
+    // TODO: inform the user it didn't work
     return;
   } else {
+    const numOfDays = getNumberOfDays(startDate, endDate);
+    console.log(numOfDays);
     const city = document.getElementById("inputCity").value;
     var queryURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -77,6 +93,18 @@ function checkDates() {
             //   console.log(dailyMin);
             //   console.log(description);
 
+            const cardIDs = [
+              "cardOne",
+              "cardTwo",
+              "cardThree",
+              "cardFour",
+              "cardFive",
+              "cardSix",
+            ];
+
+            for (let i = 0; i < numOfDays; i++) {
+              document.getElementById(cardIDs[i]).classList.add("show");
+            }
             // forecast for second day
             document.getElementById("descrTomorrow").textContent =
               "The weather will be " + data.daily[1].weather[0].description;
@@ -127,10 +155,11 @@ function checkDates() {
 
             // Hotel Data
             var apiKey = "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2a";
-            var URL1 = "https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query="
-            +city+
-            "&lang=en_US&units=mi&appid="
-            +apiKeyj;
+            var URL1 =
+              "https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query=" +
+              city +
+              "&lang=en_US&units=mi&appid=" +
+              apiKey;
 
             fetch(URL1, {
               method: "GET",
@@ -160,17 +189,16 @@ function checkDates() {
                 console.log(lat);
                 console.log(lon);
 
-                var date = document.getElementById("inputDates").value;
-                console.log(date);
+                var date = today;
 
                 var URL2 =
-                  "https://travel-advisor.p.rapidapi.com/hotels/list-by-latlng?latitude="
-                  +lat+
-                  "&longitude="
-                  +lon+
-                  "&lang=en_US&limit=5&adults=1&amenities=pool%2Cspa&rooms=1&currency=USD&checkin="
-                  +date+
-                  "&nights=1&distance=10"
+                  "https://travel-advisor.p.rapidapi.com/hotels/list-by-latlng?latitude=" +
+                  lat +
+                  "&longitude=" +
+                  lon +
+                  "&lang=en_US&limit=5&adults=1&amenities=pool%2Cspa&rooms=1&currency=USD&checkin=" +
+                  date +
+                  "&nights=1&distance=10";
 
                 console.log(URL2);
 
@@ -193,7 +221,6 @@ function checkDates() {
                     console.log(data);
 
                     for (let i = 0; i < data.data.length; i++) {
-           
                       if (data.data[i].name !== undefined) {
                         var hotelPhoto = data.data[i].photo.images.small.url;
                         console.log(hotelPhoto);
@@ -211,53 +238,50 @@ function checkDates() {
                           <span class="hotelPrice">Hotel Price Range: ${hotelPrice}</span>
                           <span class="hotelRating">Hotel Rating: ${hotelRating}</span>
                           </div>
-                          `
+                          `;
 
-                          $(".hotel-info").append(card);
+                        $(".hotel-info").append(card);
                       }
-                
-             
-
-                    };
+                    }
                   });
-                  var URL3 = 
-                  "https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng?longitude="
-                  + lon +
+                var URL3 =
+                  "https://travel-advisor.p.rapidapi.com/attractions/list-by-latlng?longitude=" +
+                  lon +
                   "&latitude=" +
                   lat +
                   "&lunit=mi&currency=USD&limit=5&lang=en_US";
-                  console.log(URL3);
+                console.log(URL3);
 
-                 fetch(URL3, {
-                   method: "GET",
-                   headers: {
+                fetch(URL3, {
+                  method: "GET",
+                  headers: {
                     "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
                     // "x-rapidapi-key":
                     //   "3c1946e328mshd9fa0bbc159f712p1befbbjsn7dcdf270cc76",
-                    "x-rapidapi-key": "910fdf912amshb0c25005d22a18bp176efajsncf775f14afc7",
-                   },
-                 })
-                 .then((response) => {
-                   console.log(response.json);
-                   return response.json();
-                 })
-                 .catch((err) => {
-                   console.log(err);
-                 })
-                 .then((data) => {
-                   console.log(data)
+                    "x-rapidapi-key":
+                      "910fdf912amshb0c25005d22a18bp176efajsncf775f14afc7",
+                  },
+                })
+                  .then((response) => {
+                    console.log(response.json);
+                    return response.json();
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  })
+                  .then((data) => {
+                    console.log(data);
 
-                   for (let i = 0; i < data.data.length; i++) {
-                     if (data.data[i] !== undefined) {
-                       var attrName = data.data[i].name;
-                       console.log(attrName);
-                       var webURL = data.data[i].web_url;
-                       console.log(webURL);
-                       var attrPhoto = data.data[i].photo.images.small.url;
-                       console.log(attrPhoto);
+                    for (let i = 0; i < data.data.length; i++) {
+                      if (data.data[i] !== undefined) {
+                        var attrName = data.data[i].name;
+                        console.log(attrName);
+                        var webURL = data.data[i].web_url;
+                        console.log(webURL);
+                        var attrPhoto = data.data[i].photo.images.small.url;
+                        console.log(attrPhoto);
 
-
-                       var card = `
+                        var card = `
                        <div id = "attrCard">
                        
                           <h6 class="attraction-name">${attrName}</h6>
@@ -265,120 +289,67 @@ function checkDates() {
                           <a href="${webURL}"><img src="${attrPhoto}" width="200" height = "200" id = "attrPhoto"></a>
                           
                           </div>
-                          `
-                          
-                          $(".attraction-info").append(card);
-                          
-                     }
-                     
-                   }
-                 })
+                          `;
 
+                        $(".attraction-info").append(card);
+                      }
+                    }
+                  });
 
+                var URL4 =
+                  "https://travel-advisor.p.rapidapi.com/restaurants/list-by-latlng?latitude=" +
+                  lat +
+                  "&longitude=" +
+                  lon +
+                  "&1unit=mi&currency=USD&limit=5&lang=en_US";
 
+                console.log(URL4);
 
+                fetch(URL4, {
+                  method: "GET",
+                  headers: {
+                    "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
+                    "x-rapidapi-key":
+                      "ac0e3c3af6msh7dd67cc95fdd673p1586bbjsn29d733c732e2",
+                  },
+                })
+                  .then((response) => {
+                    console.log(response.json);
+                    return response.json();
+                  })
+                  .catch((err) => {
+                    console.error(err);
+                  })
+                  .then((data) => {
+                    console.log(data);
 
+                    for (let i = 0; i < data.data.length; i++) {
+                      if (data.data[i].name !== undefined) {
+                        var restaurantName = data.data[i].name;
+                        console.log("Restaurant Name: " + restaurantName);
+                        var restaurantPrice = data.data[i].price_level;
+                        console.log(
+                          "Restaurant Price Range: " + restaurantPrice
+                        );
+                        var restaurantRating = data.data[i].rating;
+                        console.log("Restaurant Rating: " + restaurantRating);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                 var URL4 =
-                 "https://travel-advisor.p.rapidapi.com/restaurants/list-by-latlng?latitude=" +
-                 lat +
-                 "&longitude=" +
-                 lon +
-                 "&1unit=mi&currency=USD&limit=5&lang=en_US";
-               
-               console.log(URL4);
-               
-               fetch(URL4, {
-                 method: "GET",
-                 headers: {
-                   "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
-                   "x-rapidapi-key": "ac0e3c3af6msh7dd67cc95fdd673p1586bbjsn29d733c732e2",
-                 },
-               })
-                 .then((response) => {
-                   console.log(response.json);
-                   return response.json();
-                 })
-                 .catch((err) => {
-                   console.error(err);
-                 })
-                 .then((data) => {
-                   console.log(data);
-               
-                   for (let i = 0; i < data.data.length; i++) {
-                     if (data.data[i].name !== undefined) {
-                       var restaurantName = data.data[i].name;
-                       console.log("Restaurant Name: " + restaurantName);
-                       var restaurantPrice = data.data[i].price_level;
-                       console.log("Restaurant Price Range: " + restaurantPrice);
-                       var restaurantRating = data.data[i].raw_ranking;
-                       console.log("Restaurant Rating: " + restaurantRating);
-
-
-                       var card= `
+                        var card = `
                        <div class="restaurant-list">
                           
                           <h6 class="restaurantName">Restaurant Name: ${restaurantName}</h6>
                           <span class="restaurantPrice">Restaurant Price Range: ${restaurantPrice}</span>
                           <span class="restaurantRating">Restaurant Rating: ${restaurantRating}</span>
                           </div>
-                          `
+                          `;
 
-                      $(".restaurant-info").append(card);
-                      console.log(card);
-
-    
-                  
-              };
-            };
+                        $(".restaurant-info").append(card);
+                        console.log(card);
+                      }
+                    }
+                  });
+              });
           });
-        }
-          
-    
-
-
-      ,)})})}}
+      });
+  }
+}
