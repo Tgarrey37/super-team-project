@@ -9,7 +9,9 @@ console.log(limit);
 // document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
 
 function checkDates() {
-  if (inputDates > limit) {
+  const startDate = document.getElementById("inputDates");
+  const endDate = document.getElementById("inputDates1");
+  if (endDate > limit || endDate <= startDate) {
     return;
   } else {
     const city = document.getElementById("inputCity").value;
@@ -131,7 +133,7 @@ function checkDates() {
               "https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query=" +
               city +
               "&lang=en_US&units=mi&appid=" +
-              apiKeyj;
+              apiKey;
 
             fetch(URL1, {
               method: "GET",
