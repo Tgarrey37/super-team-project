@@ -44,6 +44,7 @@ nav {
 }
 
 .forecast {
+  display: none;
   height: 200px;
   color: whitesmoke;
   background-color: blue;
@@ -76,67 +77,12 @@ nav {
   color: red;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .attraction-info {
   display: flex;
- flex-wrap: wrap;
+  flex-wrap: wrap;
 
-justify-content: space-around;
-margin-top: 25px;
-
-
+  justify-content: space-around;
+  margin-top: 25px;
 }
 #attrCard {
   border: 3px black solid;
@@ -150,4 +96,8 @@ margin-top: 25px;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.show {
+  display: block;
 }

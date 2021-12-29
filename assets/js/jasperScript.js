@@ -8,6 +8,19 @@ let limit = moment().add(7, "days");
 console.log(limit);
 // document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
 
+function getNumberOfDays(start, end) {
+  const chunkyDate = new Date(start);
+  const crispyDate = new Date(end);
+
+  const oneDay = 1000 * 60 * 60 * 24;
+
+  const timeDiff = crispyDate.getTime() - chunkyDate.getTime();
+
+  const dayDiff = Math.round(timeDiff / oneDay);
+
+  return dayDiff;
+}
+
 function checkDates() {
   const startDate = document.getElementById("inputDates").value;
   const endDate = document.getElementById("inputDates1").value;
@@ -15,6 +28,8 @@ function checkDates() {
     // TODO: inform the user it didn't work
     return;
   } else {
+    const numOfDays = getNumberOfDays(startDate, endDate);
+    console.log(numOfDays);
     const city = document.getElementById("inputCity").value;
     var queryURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -80,6 +95,18 @@ function checkDates() {
             //   console.log(dailyMin);
             //   console.log(description);
 
+            const cardIDs = [
+              "cardOne",
+              "cardTwo",
+              "cardThree",
+              "cardFour",
+              "cardFive",
+              "cardSix",
+            ];
+
+            for (let i = 0; i < numOfDays; i++) {
+              document.getElementById(cardIDs[i]).classList.add("show");
+            }
             // forecast for second day
             document.getElementById("descrTomorrow").textContent =
               "The weather will be " + data.daily[1].weather[0].description;
