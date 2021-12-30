@@ -21,7 +21,12 @@ function getNumberOfDays(start, end) {
 
 function checkDates() {
   const startDate = today;
-  const endDate = new Date(document.getElementById("inputDates1").value);
+  const [year, month, day] = document
+    .getElementById("inputDates1")
+    .value.split("-")
+    .map(Number);
+  const endDate = new Date(year, month - 1, day);
+
   if (endDate > limit || endDate < startDate) {
     // TODO: inform the user it didn't work
     return;
@@ -102,7 +107,7 @@ function checkDates() {
               "cardSix",
             ];
 
-            for (let i = 0; i <= numOfDays; i++) {
+            for (let i = 0; i < numOfDays; i++) {
               document.getElementById(cardIDs[i]).classList.add("show");
             }
             // forecast for second day
