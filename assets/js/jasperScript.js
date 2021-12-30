@@ -102,7 +102,7 @@ function checkDates() {
               "cardSix",
             ];
 
-            for (let i = 0; i < numOfDays; i++) {
+            for (let i = 0; i <= numOfDays; i++) {
               document.getElementById(cardIDs[i]).classList.add("show");
             }
             // forecast for second day
