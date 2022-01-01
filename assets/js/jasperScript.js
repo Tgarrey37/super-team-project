@@ -338,13 +338,19 @@ function checkDates() {
                         );
                         var restaurantRating = data.data[i].rating;
                         console.log("Restaurant Rating: " + restaurantRating);
+                        var restaurantWebsite = data.data[i].web_url;
 
                         var card = `
                        <div class="restaurant-list">
                           
                           <h6 class="restaurantName">Restaurant Name: ${restaurantName}</h6>
+                          
                           <span class="restaurantPrice">Restaurant Price Range: ${restaurantPrice}</span>
+                          <br>
                           <span class="restaurantRating">Restaurant Rating: ${restaurantRating}</span>
+                          <br>
+                          <a href="${restaurantWebsite}">Website</a>
+                          
                           </div>
                           `;
 
