@@ -9,18 +9,13 @@ function refresh() {
 
 const today = new Date();
 let limit = moment().add(7, "days");
-// document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
 
 function getNumberOfDays(start, end) {
   const chunkyDate = new Date(start);
   const crispyDate = new Date(end);
-
   const oneDay = 1000 * 60 * 60 * 24;
-
   const timeDiff = crispyDate.getTime() - chunkyDate.getTime();
-
   const dayDiff = Math.ceil(timeDiff / oneDay);
-
   return dayDiff;
 }
 
@@ -37,7 +32,6 @@ function checkDates() {
     return;
   } else {
     const numOfDays = getNumberOfDays(startDate, endDate);
-    console.log(numOfDays);
     const city = document.getElementById("inputCity").value;
     var queryURL =
       "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -50,16 +44,12 @@ function checkDates() {
         if (response.ok) {
           return response.json();
         } else {
-          console.log("Didn't reach");
           return;
         }
       })
       .then((data) => {
-        console.log(data);
         const longitude = data.coord.lon;
         const latitude = data.coord.lat;
-        console.log("longitude of " + city + " is " + longitude);
-        console.log("latitude of " + city + " is " + latitude);
         var nextQuery =
           "https://api.openweathermap.org/data/2.5/onecall?lat=" +
           latitude +
@@ -76,17 +66,11 @@ function checkDates() {
             }
           })
           .then((data) => {
-            console.log(data);
-
             // variables for the current day weather
             const temp = data.current.temp;
             const clouds = data.current.clouds;
             const minTemp = data.daily[0].temp.min;
             const maxTemp = data.daily[0].temp.max;
-            console.log("The temperature in " + city + " is currently " + temp);
-            console.log(
-              "The percentage of cloudiness in " + city + " is " + clouds
-            );
             document.getElementById("today").textContent = `Today's Forecast: 
             `;
             document.getElementById("currentTemp").textContent =
@@ -100,8 +84,6 @@ function checkDates() {
             document.getElementById("description").textContent =
               `Weather today is described as: ` +
               data.current.weather[0].description;
-            //   console.log(dailyMin);
-            //   console.log(description);
 
             const cardIDs = [
               "cardOne",
@@ -180,24 +162,17 @@ function checkDates() {
               },
             })
               .then((response) => {
-                console.log(response);
-                console.log(response.json);
                 return response.json();
               })
               .catch((err) => {
-                console.error(err);
               })
               .then((data) => {
-                console.log(data);
                 var lat =
                   data.data.Typeahead_autocomplete.results[0].detailsV2.geocode
                     .latitude;
                 var lon =
                   data.data.Typeahead_autocomplete.results[0].detailsV2.geocode
                     .longitude;
-
-                console.log(lat);
-                console.log(lon);
 
                 var date = today;
 
@@ -210,7 +185,6 @@ function checkDates() {
                   date +
                   "&nights=1&distance=10";
 
-                console.log(URL2);
 
                 fetch(URL2, {
                   method: "GET",
@@ -221,32 +195,29 @@ function checkDates() {
                   },
                 })
                   .then((response) => {
-                    console.log(response.json);
                     return response.json();
                   })
                   .catch((err) => {
-                    console.error(err);
                   })
                   .then((data) => {
-                    console.log(data);
 
                     for (let i = 0; i < data.data.length; i++) {
                       if (data.data[i].name !== undefined) {
-                        var hotelPhoto = data.data[i].photo.images.small.url;
-                        console.log(hotelPhoto);
+                        var hotelPhoto = data.data[i].photo.images.medium.url;
                         var hotelName = data.data[i].name;
-                        console.log("Hotel Name: " + hotelName);
                         var hotelPrice = data.data[i].price;
-                        console.log("Hotel Price Range: " + hotelPrice);
                         var hotelRating = data.data[i].rating;
-                        console.log("Hotel Rating: " + hotelRating);
 
                         var card = `
                           <div class="hotel-list">
+                          <div class="image">
                           <a class="img" Link href="${hotelPhoto}"><img src="${hotelPhoto}" alt="Photo of Hotel"></a>
-                          <h6 class="hotelName">Hotel Name: ${hotelName}</h6>
-                          <span class="hotelPrice">Hotel Price Range: ${hotelPrice}</span>
-                          <span class="hotelRating">Hotel Rating: ${hotelRating}</span>
+                          </div>
+                          <div class="text">
+                          <h6 class="hotelName">Hotel Name: ${hotelName}<br></h6>
+                          <span class="hotelPrice">Hotel Price Range: ${hotelPrice}<br></span>
+                          <span class="hotelRating">Hotel Rating: ${hotelRating}<br></span>
+                          </div>
                           </div>
                           `;
 
@@ -273,26 +244,20 @@ function checkDates() {
                   },
                 })
                   .then((response) => {
-                    console.log(response.json);
                     return response.json();
                   })
                   .catch((err) => {
-                    console.log(err);
                   })
                   .then((data) => {
-                    console.log(data);
 
                     for (let i = 0; i < data.data.length; i++) {
                       if (data.data[i] !== undefined) {
                         var attrName = data.data[i].name;
-                        console.log(attrName);
                         var webURL = data.data[i].web_url;
-                        console.log(webURL);
                         var attrPhoto = data.data[i].photo.images.small.url;
-                        console.log(attrPhoto);
 
                         var card = `
-                       <div id = "attrCard">
+                          <div id = "attrCard">
                        
                           <h6 class="attraction-name">${attrName}</h6>
                           
@@ -313,7 +278,6 @@ function checkDates() {
                   lon +
                   "&1unit=mi&currency=USD&limit=5&lang=en_US";
 
-                console.log(URL4);
 
                 fetch(URL4, {
                   method: "GET",
@@ -324,29 +288,21 @@ function checkDates() {
                   },
                 })
                   .then((response) => {
-                    console.log(response.json);
                     return response.json();
                   })
                   .catch((err) => {
-                    console.error(err);
                   })
                   .then((data) => {
-                    console.log(data);
 
                     for (let i = 0; i < data.data.length; i++) {
                       if (data.data[i].name !== undefined) {
                         var restaurantName = data.data[i].name;
-                        console.log("Restaurant Name: " + restaurantName);
                         var restaurantPrice = data.data[i].price_level;
-                        console.log(
-                          "Restaurant Price Range: " + restaurantPrice
-                        );
                         var restaurantRating = data.data[i].rating;
-                        console.log("Restaurant Rating: " + restaurantRating);
                         var restaurantWebsite = data.data[i].web_url;
 
                         var card = `
-                       <div class="restaurant-list">
+                          <div class="restaurant-list">
                           
                           <h6 class="restaurantName">Restaurant Name: ${restaurantName}</h6>
                           
@@ -360,7 +316,6 @@ function checkDates() {
                           `;
 
                         $(".restaurant-info").append(card);
-                        console.log(card);
                       }
                     }
                   });

@@ -1,19 +1,20 @@
 /* Style for Nav and H1 - Ben */
 body {
-  background-color: grey;
+  background-color: #b9cdda;
   min-height: 100vh;
 }
 h1 {
   color: rgb(255, 255, 255);
 }
 header {
-  background-color: grey;
+  background-color: #4f5d75;
   align-items: center;
   display: flex;
   flex-direction: column;
-  font-size: xx-large;
+  font-size: 40px;
   font-weight: bold;
-  color: black;
+  color: #fbfff1;
+  padding: 30px;
 }
 
 /* End of nav and h1 style - Ben */
@@ -21,7 +22,7 @@ header {
 /* Creating different styling for my recent search card - Taylor */
 
 .input {
-  width: 60%;
+  width: 40%;
   margin-left: 2rem;
   margin-right: 2rem;
   margin-bottom: 2rem;
@@ -45,10 +46,22 @@ header {
 .forecast {
   display: none;
   height: 200px;
-  color: whitesmoke;
-  background-color: blue;
+  color: #fbfff1;
+  background-color: #3066be;
   padding: 1rem;
+  border: 3px black solid;
+  margin: auto;
 }
+
+/* .weatherResults {
+  display: none;
+  height: 200px;
+  color: #fbfff1;
+  background-color: #3066be;
+  padding: 1rem;
+  border: 3px black solid;
+} */
+
 .hotel-results {
   display: flex;
   flex-wrap: wrap;
@@ -64,51 +77,79 @@ header {
 
 .hotel-list {
   display: flex;
-  margin: 20px;
+  margin: auto;
+  margin-top: 1rem;
   height: 200px;
   width: 400px;
-  color: whitesmoke;
-  background-color: rebeccapurple;
+  color: #fbfff1;
+  background-color: #3066be;
   padding: 1rem;
+  border: 3px black solid;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-.hotelRating {
-  color: red;
+.image {
+  padding-right: .5rem;
 }
 
-  #colorCard{
-    background-color: blue;
+.text {
+  display: block;
+  padding-left: .5rem;
+}
+
+#colorCard{
+    background-color: #0094c6;
+    color: #fbfff1;
+    text-align: center;
+    /*border: 3px solid black;*/
 }
 
 .attraction-info {
   display: flex;
   flex-wrap: wrap;
-
   justify-content: space-around;
-  margin-top: 25px;
+  
+
 }
+
 #attrCard {
   border: 3px black solid;
   display: block;
   /* flex-wrap: wrap; */
-  margin: 10px;
-  background-color: aquamarine;
+  margin: auto;
+  background-color: #3066be;
+  color: #fbfff1;
   font-weight: bold;
   width: 250px;
   height: 250px;
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
+
 .restaurant-list {
-  margin: 20px;
+  margin: auto;
   height: 200px;
   width: 400px;
-  color: whitesmoke;
-  background-color: rebeccapurple;
+  color: #fbfff1;
+  background-color: #3066be;
   padding: 1rem;
   border: black solid;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
+
+.restaurant-list a {
+  color: #fbfff1;
+}
+
+.restaurant-info a:hover {
+  color: black;
+}
+
 .restaurant-info {
   display: flex;
   flex-wrap: wrap;
