@@ -76,6 +76,10 @@ header {
   color: red;
 }
 
+  #colorCard{
+    background-color: blue;
+}
+
 .attraction-info {
   display: flex;
   flex-wrap: wrap;

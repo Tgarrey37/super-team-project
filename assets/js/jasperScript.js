@@ -164,7 +164,7 @@ function checkDates() {
               "High of " + data.daily[6].temp.max;
 
             // Hotel Data
-            var apiKey = "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2a";
+            var apiKey = "a0f73c1dd1msh74ec516011e5ba8p1a5333jsn70f964f2bb32";
             var URL1 =
               "https://travel-advisor.p.rapidapi.com/locations/v2/auto-complete?query=" +
               city +
@@ -176,7 +176,7 @@ function checkDates() {
               headers: {
                 "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
                 "x-rapidapi-key":
-                  "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2",
+                  "a0f73c1dd1msh74ec516011e5ba8p1a5333jsn70f964f2bb32",
               },
             })
               .then((response) => {
@@ -217,7 +217,7 @@ function checkDates() {
                   headers: {
                     "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
                     "x-rapidapi-key":
-                      "f9353ff5c9msh3262f753f10f289p1db0d9jsn74eabeef79d2",
+                      "a0f73c1dd1msh74ec516011e5ba8p1a5333jsn70f964f2bb32",
                   },
                 })
                   .then((response) => {
@@ -320,7 +320,7 @@ function checkDates() {
                   headers: {
                     "x-rapidapi-host": "travel-advisor.p.rapidapi.com",
                     "x-rapidapi-key":
-                      "ac0e3c3af6msh7dd67cc95fdd673p1586bbjsn29d733c732e2",
+                      "a0f73c1dd1msh74ec516011e5ba8p1a5333jsn70f964f2bb32",
                   },
                 })
                   .then((response) => {
