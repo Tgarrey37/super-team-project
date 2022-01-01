@@ -114,6 +114,7 @@ function checkDates() {
 
             for (let i = 0; i < numOfDays; i++) {
               document.getElementById(cardIDs[i]).classList.add("show");
+              //document.getElementById()
             }
             // forecast for second day
             document.getElementById("descrTomorrow").textContent =
@@ -346,7 +347,7 @@ function checkDates() {
                         var restaurantWebsite = data.data[i].web_url;
 
                         var card = `
-                       <div class="restaurant-list">
+                          <div class="restaurant-list">
                           
                           <h6 class="restaurantName">Restaurant Name: ${restaurantName}</h6>
                           
