@@ -1,21 +1,13 @@
 /* Style for Nav and H1 - Ben */
 body {
-<<<<<<< Updated upstream
-  background-color: grey;
+  background-color: #b9cdda;
   min-height: 100vh;
 }
 h1 {
   color: rgb(255, 255, 255);
 }
 header {
-  background-color: grey;
-=======
-  background-color: #B4C5E4;
-  min-height: 100vh;
-}
-header {
-  background-color: #3c3744;
->>>>>>> Stashed changes
+  background-color: #4f5d75;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -26,12 +18,11 @@ header {
 }
 
 /* End of nav and h1 style - Ben */
-<<<<<<< Updated upstream
 
 /* Creating different styling for my recent search card - Taylor */
 
 .input {
-  width: 60%;
+  width: 40%;
   margin-left: 2rem;
   margin-right: 2rem;
   margin-bottom: 2rem;
@@ -45,23 +36,6 @@ header {
 .button {
   margin-left: 1rem;
 }
-=======
-.initial {
-  display: flex;
-  padding: 3%;
-  justify-content: space-between;
-}
-
-.searchFields {
-  width: 45%;
-}
-
-.instructions {
-  width: 45%;
-}
-
-/* Creating different styling for my recent search card - Taylor */
->>>>>>> Stashed changes
 
 .flex {
   display: flex;
@@ -76,16 +50,17 @@ header {
   background-color: #3066be;
   padding: 1rem;
   border: 3px black solid;
+  margin: auto;
 }
 
-.weatherResults {
+/* .weatherResults {
   display: none;
   height: 200px;
   color: #fbfff1;
   background-color: #3066be;
   padding: 1rem;
   border: 3px black solid;
-}
+} */
 
 .hotel-results {
   display: flex;
@@ -102,31 +77,47 @@ header {
 
 .hotel-list {
   display: flex;
-  margin: 20px;
+  margin: auto;
+  margin-top: 1rem;
   height: 200px;
   width: 400px;
   color: #fbfff1;
   background-color: #3066be;
   padding: 1rem;
   border: 3px black solid;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
-  #colorCard{
-    background-color: blue;
+.image {
+  padding-right: .5rem;
+}
+
+.text {
+  display: block;
+  padding-left: .5rem;
+}
+
+#colorCard{
+    background-color: #0094c6;
+    color: #fbfff1;
+    text-align: center;
+    /*border: 3px solid black;*/
 }
 
 .attraction-info {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 25px;
+  
+
 }
 
 #attrCard {
   border: 3px black solid;
   display: block;
   /* flex-wrap: wrap; */
-  margin: 10px;
+  margin: auto;
   background-color: #3066be;
   color: #fbfff1;
   font-weight: bold;
@@ -135,36 +126,31 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
-<<<<<<< Updated upstream
+
 .restaurant-list {
-=======
-.restaurant-list{
->>>>>>> Stashed changes
-  margin: 20px;
+  margin: auto;
   height: 200px;
   width: 400px;
   color: #fbfff1;
   background-color: #3066be;
   padding: 1rem;
-<<<<<<< Updated upstream
   border: black solid;
-}
-.restaurant-info {
-=======
-  border:black solid;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .restaurant-list a {
   color: #fbfff1;
 }
 
-.restaurant-list a:hover {
-  color: #3c3744;
+.restaurant-info a:hover {
+  color: black;
 }
 
-.restaurant-info{
->>>>>>> Stashed changes
+.restaurant-info {
   display: flex;
   flex-wrap: wrap;
 }
