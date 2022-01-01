@@ -1,6 +1,11 @@
 const APIKey = "c5a2aadd2ba954ccd8c6e99df9c362c9";
 
 document.getElementById("checkDatesBtn").addEventListener("click", checkDates);
+document.getElementById("cancelBtn").addEventListener("click", refresh);
+
+function refresh() {
+  window.location.reload();
+}
 
 const today = new Date();
 let limit = moment().add(7, "days");

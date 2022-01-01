@@ -1,9 +1,13 @@
 /* Style for Nav and H1 - Ben */
+body {
+  background-color: grey;
+  min-height: 100vh;
+}
 h1 {
-  color: blue;
+  color: rgb(255, 255, 255);
 }
 header {
-  background-color: aquamarine;
+  background-color: grey;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -11,30 +15,25 @@ header {
   font-weight: bold;
   color: black;
 }
-nav {
-  background-color: aquamarine;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  font-size: large;
-  font-weight: bold;
-  color: black;
-  justify-content: space-between;
-}
-.homeBtn {
-  margin-left: 250px;
-}
-.historyBtn {
-  margin-right: 250px;
-}
+
 /* End of nav and h1 style - Ben */
 
 /* Creating different styling for my recent search card - Taylor */
-.recentSearches {
-  text-align: center;
-  padding: 50px;
-  width: 400px;
-  background-color: aquamarine;
+
+.input {
+  width: 60%;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+.label {
+  margin-left: 1rem;
+  color: white;
+}
+
+.button {
+  margin-left: 1rem;
 }
 
 .flex {
@@ -97,22 +96,19 @@ nav {
   align-items: center;
   text-align: center;
 }
-.restaurant-list{
-
+.restaurant-list {
   margin: 20px;
   height: 200px;
   width: 400px;
   color: whitesmoke;
   background-color: rebeccapurple;
   padding: 1rem;
-  border:black solid;
-
+  border: black solid;
 }
-.restaurant-info{
+.restaurant-info {
   display: flex;
   flex-wrap: wrap;
 }
-
 
 .show {
   display: block;
