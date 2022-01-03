@@ -12,6 +12,7 @@ The results will show you price ranges, ratings, and other important information
 
 ### Screenshots 
 
+![Screen Shot 2022-01-03 at 9 34 06 AM](https://user-images.githubusercontent.com/89158559/147955564-905ba012-3171-4ada-af6d-c8887ad2236b.png)
 ### Links 
 [Github](https://github.com/Tgarrey37/super-team-project)
 
